@@ -2,11 +2,11 @@
 
 <img src="https://terser.org/img/terser-banner-logo.png" alt="Terser" width="400">
 
-Run `terser` on a folder, minify the results into a file/folder.
+Command to run `terser` on a folder and minify the result in a single file or a new folder.
 
 ## Getting Started
 
-Install the module with: `npm install terser-dir -g`
+Install the module with: `npm i terser-dir`
 
 ## Documentation
 

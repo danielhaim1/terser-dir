@@ -1,0 +1,35 @@
+{
+  "name": "terser-dir",
+  "version": "1.0.0",
+  "description": "Run terser on a folder, minify the results into a file/folder.",
+  "keywords": [
+    "terser",
+    "terser cli",
+    "terser directory",
+    "terser folder",
+    "uglify directory",
+    "uglify folder"
+  ],
+  "homepage": "https://github.com/danielhaim1/terser-dir",
+  "bugs": {
+    "url": "https://github.com/danielhaim1/terser-dir/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danielhaim1/terser-dir.git"
+  },
+  "license": "MIT",
+  "author": "Daniel Haim",
+  "bin": {
+    "terser-dir": "./cli.js"
+  },
+  "dependencies": {
+    "extend": "3.0.2",
+    "globby": "10.0.1",
+    "graceful-fs": "4.2.3",
+    "meow": "5.0.0",
+    "mkdirp": "0.5.1",
+    "proxyquire": "1.7.10",
+    "terser": "4.3.9"
+  }
+}

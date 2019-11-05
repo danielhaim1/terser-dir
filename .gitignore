@@ -1,0 +1,18 @@
+# Folders
+/node_modules
+
+# Files
+.DS_Store
+._*
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.map
+*~

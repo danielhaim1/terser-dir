@@ -1,6 +1,6 @@
 {
   "name": "terser-dir",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Run terser on a folder, minify the results into a file/folder.",
   "keywords": [
     "terser",
@@ -25,10 +25,10 @@
   },
   "dependencies": {
     "extend": "^3.0.2",
+    "globby": "^11.0.0",
     "graceful-fs": "^4.2.3",
-    "mkdirp": "^0.5.1",
-    "terser": "^4.4.1",
-    "globby": "^10.0.1",
-    "meow": "^5.0.0"
+    "meow": "^6.1.0",
+    "mkdirp": "^1.0.4",
+    "terser": "^4.6.11"
   }
 }

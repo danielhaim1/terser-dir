@@ -7,7 +7,7 @@ const fs = require("graceful-fs");
 const mkdirp = require("mkdirp");
 
 const defaultOptions = {
-  comments: true,
+  comments: false,
   output: "",
   each: false,
   extension: ".min.js",
@@ -133,7 +133,7 @@ function readFile(path) {
   try {
     return fs.readFileSync(path, "utf-8");
   } catch (e) {
-    console.error("terser FOLDER ERROR: ", path, "was not found !");
+    console.error("(terser-dir) error - ", path, " was not found.");
     return "";
   }
 }

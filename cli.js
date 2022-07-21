@@ -1,8 +1,9 @@
 #! /usr/bin/env node
+
 "use strict";
 
-const meow = require("meow"), 
-      dir = require("./");
+const meow = require("meow");
+const dir = require("./");
 
 const cli = meow({
   help: [
@@ -22,7 +23,7 @@ const result = dir(cli.input[0], {
   extension: cli.flags.extension || ".min.js",
   each: cli.flags.each || false,
   es6: cli.flags.harmony || false,
-  patterns: (cli.flags.pattern || cli.flags.p || "**/*.js").split( cli.flags.pseparator || "," )
+  patterns: (cli.flags.pattern || cli.flags.p || "**/*.js").split(cli.flags.pseparator || ",")
 });
 
 if (result) {

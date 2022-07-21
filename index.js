@@ -20,9 +20,7 @@ module.exports = (dirPath, options) => {
 
   const terser = require("terser");
 
-  const uglifyConfiguration = options.configFile
-    ? require(path.resolve(options.configFile))
-    : {};
+  const uglifyConfiguration = options.configFile ? require(path.resolve(options.configFile)) : {};
 
   // ! minify all *.js files
   const files = globby.sync(options.patterns, {
@@ -33,18 +31,10 @@ module.exports = (dirPath, options) => {
   if (options.each) {
     files.forEach(fileName => {
       options.output = isEmpty(options.output) ? "_out_" : options.output;
-      const newName =
-        path.join(
-          options.output,
-          path.dirname(fileName),
-          path.basename(fileName, path.extname(fileName))
-        ) + options.extension;
+      const newName = path.join(options.output, path.dirname(fileName), path.basename(fileName, path.extname(fileName))) + options.extension;
       const originalCode = {};
       originalCode[fileName] = readFile(path.join(dirPath, fileName));
-      const minifyResult = terser.minify(
-        originalCode,
-        getUglifyOptions(newName, uglifyConfiguration)
-      );
+      const minifyResult = terser.minify(originalCode, getUglifyOptions(newName, uglifyConfiguration));
 
       if (minifyResult.error) {
         console.log(minifyResult.error);
@@ -54,7 +44,7 @@ module.exports = (dirPath, options) => {
       writeFile(newName, minifyResult.code);
 
       if (minifyResult.map) {
-        writeFile(`${newName}.map`, minifyResult.map);
+        writeFile(`${ newName }.map`, minifyResult.map);
       }
     });
   } else {
@@ -65,7 +55,7 @@ module.exports = (dirPath, options) => {
       let source = readFile(path.join(dirPath, fileName));
 
       if (options.comments) {
-        source = `/**** ${fileName} ****/\n${source}`;
+        source = `/**** ${ fileName } ****/\n${ source }`;
       }
       originalCode[fileName] = source;
     });
@@ -74,8 +64,7 @@ module.exports = (dirPath, options) => {
 
     if (options.comments) {
       uglifyOptions.output = uglifyOptions.output || {};
-      uglifyOptions.output.comments =
-        uglifyOptions.output.comments || "/\\*{2}/";
+      uglifyOptions.output.comments = uglifyOptions.output.comments || "/\\*{2}/";
     }
 
     const minifyResult = terser.minify(originalCode, uglifyOptions);
@@ -91,7 +80,7 @@ module.exports = (dirPath, options) => {
       writeFile(options.output, minifyResult.code);
 
       if (minifyResult.map) {
-        writeFile(`${options.output}.map`, minifyResult.map);
+        writeFile(`${ options.output }.map`, minifyResult.map);
       }
     }
   }
@@ -104,17 +93,11 @@ function getUglifyOptions(fileName, uglifyConfiguration) {
 
   if (uglifyOptions.sourceMap) {
     if (uglifyOptions.sourceMap.filename) {
-      uglifyOptions.sourceMap.filename = uglifyOptions.sourceMap.filename.replace(
-        "{file}",
-        fileName
-      );
+      uglifyOptions.sourceMap.filename = uglifyOptions.sourceMap.filename.replace("{file}", fileName);
     }
 
     if (uglifyOptions.sourceMap.url) {
-      uglifyOptions.sourceMap.url = uglifyOptions.sourceMap.url.replace(
-        "{file}",
-        fileName
-      );
+      uglifyOptions.sourceMap.url = uglifyOptions.sourceMap.url.replace("{file}", fileName);
     }
   }
 
@@ -143,10 +126,10 @@ function writeFile(filePath, code) {
   mkdirp(path.dirname(filePath), () => {
     fs.writeFile(filePath, code, err => {
       if (err) {
-        console.log(`Error: ${err}`);
+        console.log(`Error: ${ err }`);
         return;
       }
-      console.log(`File ${filePath} written successfully.`);
+      console.log(`File ${ filePath } written successfully.`);
     });
   });
 }

@@ -1,6 +1,6 @@
 # terser-dir
 
-<img src="https://terser.org/img/terser-banner-logo.png" alt="Terser" width="400">
+<img src="https://terser.org/img/terser-banner-logo.svg" alt="Terser" width="400">
 
 Command to run `terser` on a folder and minify the result in a single file or a new folder.
 

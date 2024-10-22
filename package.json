@@ -45,7 +45,6 @@
     "release": "npm version patch && npm run prepare && git add package.json package-lock.json dist/ && git commit -m 'Bump version and build package for release' && git push && npm publish"
   },
   "dependencies": {
-    "terser": "^5.26.0",
     "@jest/expect": "^29.5.0",
     "esbuild-jest": "^0.5.0",
     "exports-loader": "^5.0.0",
@@ -56,10 +55,14 @@
     "jest-environment-puppeteer": "^10.1.2",
     "jest-puppeteer": "^10.1.2",
     "puppeteer": "^23.6.0",
-    "puppeteer-core": "^23.6.0"
+    "puppeteer-core": "^23.6.0",
+    "terser": "^5.26.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.7",
     "@babel/core": "^7.25.8",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.25.8",
     "babel-jest": "^29.5.0",
     "fs-extra": "^11.1.1",

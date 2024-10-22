@@ -1,2 +1,5 @@
 node_modules/
 .git/
+demo/
+__test__/
+dist/

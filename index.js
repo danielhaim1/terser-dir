@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const TerserDirectory = require('./src/terser.dir.js');
 const path = require('path');
 

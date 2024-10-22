@@ -48,8 +48,8 @@ class TerserDirectory {
             const originalCode = await this.readFile(filePath);
 
             // Log the original code to verify what is being minified
-            console.log(`Original code from ${filePath}:`);
-            console.log(originalCode);
+            // console.log(`Original code from ${filePath}:`);
+            // console.log(originalCode);
 
             const minifyResult = await terser.minify(originalCode, this.getUglifyOptions(filePath, uglifyConfig));
 
@@ -72,7 +72,7 @@ class TerserDirectory {
             files = config.input.map(file => path.resolve(__dirname, '../', file)); // Resolve input paths
             files = config.input.map(file => {
                 const resolvedPath = path.resolve(__dirname, '../', file);
-                console.log('Resolved input file path:', resolvedPath); // Debug log
+                // console.log('Resolved input file path:', resolvedPath); // Debug log
                 return resolvedPath;
             });
 
@@ -123,16 +123,16 @@ class TerserDirectory {
     async writeMinifiedJavaScriptFile(filePath, minifyResult, options) {
         const outputFilePath = this.getOutputJavaScriptFilePath(filePath, options);
 
-        console.log('Debug: Writing to file:', outputFilePath);  // Add this line
+        // console.log('Debug: Writing to file:', outputFilePath);  // Add this line
 
         try {
             const outputDir = path.dirname(outputFilePath);
             await fs.mkdir(outputDir, { recursive: true });
 
-            console.log('Debug: Directory created or exists:', outputDir);  // Add this line
+            // console.log('Debug: Directory created or exists:', outputDir);  // Add this line
 
             if (typeof minifyResult.code === 'string') {
-                console.log('Debug: Minified code:', minifyResult.code);  // Add this line
+                // console.log('Debug: Minified code:', minifyResult.code);  // Add this line
                 await fs.writeFile(outputFilePath, minifyResult.code);
             }
         } catch (err) {

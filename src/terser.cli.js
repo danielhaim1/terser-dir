@@ -15,7 +15,7 @@ class TerserCli {
 
     if (options.version) {
       const { version } = require("./package.json");
-      console.log(`terser-dir version ${version}`);
+      // console.log(`terser-dir version ${version}`);
       return;
     }
 
@@ -43,7 +43,7 @@ class TerserCli {
 
       const javascriptFiles = await terserDir.findJavaScriptFiles(targetDirectory);
       await terserDir.terserDirectory(javascriptFiles, options);
-      console.log(`Minification completed for directory: ${targetDirectory}`);
+      // console.log(`Minification completed for directory: ${targetDirectory}`);
     } catch (error) {
       console.error(`Error occurred: ${error.message}`);
       process.exit(1);

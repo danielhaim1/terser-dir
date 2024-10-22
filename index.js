@@ -13,7 +13,7 @@ async function runTerserDirectory() {
 
   if (options.version) {
     const { version } = require("./package.json");
-    console.log(`Terser Directory version ${version}`);
+    // console.log(`Terser Directory version ${version}`);
     return;
   }
 
@@ -34,13 +34,13 @@ async function runTerserDirectory() {
   try {
     const targetDirectory = path.resolve(args[0]);
     const terserDirectory = new TerserDirectory();
-    console.log('TerserDirectory instance:', terserDirectory);
+    // console.log('TerserDirectory instance:', terserDirectory);
     const javascriptFiles = await terserDirectory.findJavaScriptFiles(targetDirectory);
-    console.log('JavaScript files found:', javascriptFiles);
+    // console.log('JavaScript files found:', javascriptFiles);
     await terserDirectory.terserDirectory(javascriptFiles, options);
-    console.log(`Minification completed for directory: ${targetDirectory}`);
+    // console.log(`Minification completed for directory: ${targetDirectory}`);
   } catch (error) {
-    console.error(`Error occurred: ${error.message}`);
+    // console.error(`Error occurred: ${error.message}`);
     process.exit(1);
   }
 }

@@ -21,6 +21,7 @@ Documentation
     --config-file   Specify a configuration file for Terser
     --help          Print this list and exit.
 ```
+
 ### Examples
 ```shell
     $ terser-dir src/js --output .bundle/
@@ -28,9 +29,11 @@ Documentation
     $ terser-dir demo/files --config-file demo/config.json
     $ terser-dir demo/files --output app-test-noconfig.min.js
 ```
+
 ### Configuration Options
 
 You can also specify a configuration file in JSON format. The configuration file can define input files, output paths, and debugging options.
+
 ```json
     {
       "input": [

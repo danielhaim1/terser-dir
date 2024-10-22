@@ -10,7 +10,7 @@ class TerserCli {
     const options = this.parseArguments(args);
 
     if (!options.output) {
-      options.output = 'dist/app.js'; // Changed default output
+      options.output = 'dist/app.js';
     }
 
     if (options.version) {
@@ -52,7 +52,7 @@ class TerserCli {
 
   parseArguments(args) {
     const options = {
-      output: 'dist/app.js', // Updated default output
+      output: 'dist/app.js',
       each: false,
       extension: '.min.js',
       configFile: null,

@@ -40,7 +40,7 @@
     "copy": "cp -R README.md LICENSE dist/",
     "test-cli": "node index.js demo/files --config-file demo/config-test.json",
     "prepare": "npm run build && npm run copy",
-    "release": "npm version patch && npm run prepare && git add package.json package-lock.json dist/ && git commit -m 'Bump version and build package for release' && git push"
+    "release": "npm version patch && npm run prepare && git add package.json package-lock.json dist/ && git commit -m 'Bump version and build package for release' && git push && npm publish"
   },
   "dependencies": {
     "terser": "^5.26.0"

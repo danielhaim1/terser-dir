@@ -1,6 +1,6 @@
 {
   "name": "terser-dir",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Run terser on a folder, minify the results into a file/folder.",
   "keywords": [
     "terser",

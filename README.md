@@ -15,19 +15,19 @@ Documentation
 
 ### Usage
 ```shell
-    terser-dir      path [options]
+terser-dir      path [options]
 
-    --output        Specify a file/folder to write the minified code
-    --config-file   Specify a configuration file for Terser
-    --help          Print this list and exit.
+--output        Specify a file/folder to write the minified code
+--config-file   Specify a configuration file for Terser
+--help          Print this list and exit.
 ```
 
 ### Examples
 ```shell
-    $ terser-dir src/js --output .bundle/
-    $ terser-dir src/js --output .bundle/all.min.js
-    $ terser-dir demo/files --config-file demo/config.json
-    $ terser-dir demo/files --output app-test-noconfig.min.js
+$ terser-dir src/js --output .bundle/
+$ terser-dir src/js --output .bundle/all.min.js
+$ terser-dir demo/files --config-file demo/config.json
+$ terser-dir demo/files --output app-test-noconfig.min.js
 ```
 
 ### Configuration Options
@@ -35,14 +35,14 @@ Documentation
 You can also specify a configuration file in JSON format. The configuration file can define input files, output paths, and debugging options.
 
 ```json
-    {
-      "input": [
-        "demo/files/file1.js",
-        "demo/files/dir1/file2.js"
-      ],
-      "output": "dist/app-test-config.min.js",
-      "debug": true
-    }
+{
+  "input": [
+    "demo/files/file1.js",
+    "demo/files/dir1/file2.js"
+  ],
+  "output": "dist/app-test-config.min.js",
+  "debug": true
+}
 ```
 
 ### Output Files

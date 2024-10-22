@@ -1,0 +1,8 @@
+{
+  "input": [
+    "demo/files/file1.js",
+    "demo/files/dir1/file2.js"
+  ],
+  "output": "dist/app-test-config.min.js",
+  "debug": true
+}

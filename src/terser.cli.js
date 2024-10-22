@@ -1,5 +1,6 @@
 const TerserDir = require('./terser.dir.js');
 const path = require('path');
+const fs = require('fs').promises;
 
 class TerserCli {
   constructor() {}
@@ -9,7 +10,7 @@ class TerserCli {
     const options = this.parseArguments(args);
 
     if (!options.output) {
-      options.output = '_out_';
+      options.output = 'dist/app.js'; // Changed default output
     }
 
     if (options.version) {
@@ -21,21 +22,27 @@ class TerserCli {
     if (options.help || !args[0]) {
       console.log("Usage: terser-dir <path> [options]");
       console.log("\nOptions:");
-      console.log("  --output, -o     Write the minified code to a file or directory");
-      console.log("  --each           Minify each file separately and output to a directory");
-      console.log("  --extension, -e  Specify the extension for the output file (default: .min.js)");
-      console.log("  --config-file, -c  Specify a configuration file for Terser");
-      console.log("  --comments, -C   Preserve comments in the output");
-      console.log("  --version, -v    Show version information");
-      console.log("  --help, -h       Show this help message");
+      console.log("  --output, -o        Write the minified code to a specified file or directory (default: dist/app.js)");
+      console.log("  --each              Minify each file separately and output to a directory");
+      console.log("  --extension, -e     Specify the extension for the output file (default: .min.js)");
+      console.log("  --config-file, -c   Specify a configuration file for Terser");
+      console.log("  --comments, -C      Preserve comments in the output");
+      console.log("  --version, -v       Show version information");
+      console.log("  --help, -h          Show this help message");
       return;
     }
 
     try {
       const targetDirectory = path.resolve(args[0]);
       const terserDir = new TerserDir();
+      
+      // Check if config file exists before proceeding
+      if (options.configFile) {
+        await fs.access(options.configFile);
+      }
+
       const javascriptFiles = await terserDir.findJavaScriptFiles(targetDirectory);
-      await terserDir.terserDir(javascriptFiles, options);
+      await terserDir.terserDirectory(javascriptFiles, options);
       console.log(`Minification completed for directory: ${targetDirectory}`);
     } catch (error) {
       console.error(`Error occurred: ${error.message}`);
@@ -45,7 +52,7 @@ class TerserCli {
 
   parseArguments(args) {
     const options = {
-      output: '_out_', // Default output directory
+      output: 'dist/app.js', // Updated default output
       each: false,
       extension: '.min.js',
       configFile: null,

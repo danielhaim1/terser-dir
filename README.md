@@ -1,29 +1,53 @@
-# terser-dir
+terser-dir
+==========
 
-<img src="https://terser.org/img/terser-banner-logo.png" alt="Terser" width="400">
+![Terser](https://terser.org/img/terser-banner-logo.svg)
 
 Command to run `terser` on a folder and minify the result in a single file or a new folder.
 
-## Getting Started
+Getting Started
+---------------
 
 Install the module with: `npm i terser-dir`
 
-## Documentation
+Documentation
+-------------
 
 ### Usage
-
-```
-terser-dir path [options]
-```
-
 ```shell
---output  Specify a file/folder to write the minified code
---help    Print this list and exit.
+    terser-dir      path [options]
+
+    --output        Specify a file/folder to write the minified code
+    --config-file   Specify a configuration file for Terser
+    --help          Print this list and exit.
 ```
 
 ### Examples
-
 ```shell
-$ terser-dir src/js --output bundle/
-$ terser-dir src/js --output bundle/all.min.js
+    $ terser-dir src/js --output .bundle/
+    $ terser-dir src/js --output .bundle/all.min.js
+    $ terser-dir demo/files --config-file demo/config.json
+    $ terser-dir demo/files --output app-test-noconfig.min.js
 ```
+
+### Configuration Options
+
+You can also specify a configuration file in JSON format. The configuration file can define input files, output paths, and debugging options.
+
+```json
+    {
+      "input": [
+        "demo/files/file1.js",
+        "demo/files/dir1/file2.js"
+      ],
+      "output": "dist/app-test-config.min.js",
+      "debug": true
+    }
+```
+
+### Output Files
+
+The output file can be customized, for example:
+
+*   `app-test-config.min.js` - when using a configuration file.
+*   `app-test-noconfig.min.js` - when specifying input files directly.

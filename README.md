@@ -1,7 +1,11 @@
 terser-dir
 ==========
 
-![Terser](https://terser.org/img/terser-banner-logo.svg)
+<img src="https://terser.org/img/terser-banner-logo.svg" alt="Terser" style="width: 150px; height: auto;">
+
+[![npm version](https://img.shields.io/npm/v/terser-dir)](https://www.npmjs.com/package/terser-dir)
+[![Downloads](https://img.shields.io/npm/dt/terser-dir.svg)](https://www.npmjs.com/package/terser-dir)
+![GitHub](https://img.shields.io/github/license/danielhaim1/terser-dir)
 
 Command to run `terser` on a folder and minify the result in a single file or a new folder.
 
